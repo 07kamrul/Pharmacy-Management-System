@@ -9,7 +9,7 @@ import PharmacyManagementSystem.Entity.Medicine;
 import PharmacyManagementSystem.Repository.MedicineRepository;
 
 @Service
-public class MedicineService {
+public class ImageService {
 
 	@Autowired
 	private MedicineRepository medicineRepository;

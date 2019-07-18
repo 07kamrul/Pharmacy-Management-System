@@ -16,7 +16,7 @@ import PharmacyManagementSystem.Entity.Medicine;
 import PharmacyManagementSystem.Service.MedicineService;
 
 @Controller
-public class MedicineController {
+public class CategoryController {
 
 	@Autowired
 	private MedicineService medicineService;
