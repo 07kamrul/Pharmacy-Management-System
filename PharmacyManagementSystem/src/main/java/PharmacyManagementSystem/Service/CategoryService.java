@@ -5,33 +5,33 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import PharmacyManagementSystem.Entity.Medicine;
-import PharmacyManagementSystem.Repository.MedicineRepository;
+import PharmacyManagementSystem.Entity.Category;
+import PharmacyManagementSystem.Repository.CategoryRepository;
 
 @Service
 public class CategoryService {
 
 	@Autowired
-	private MedicineRepository medicineRepository;
+	private CategoryRepository categoryRepository;
 
-	public List<Medicine> listAll() {
-		return (List<Medicine>) medicineRepository.findAll();
+	public List<Category> listAll() {
+		return (List<Category>) categoryRepository.findAll();
 	}
 
-	public void save(Medicine medicine) {
-		medicineRepository.save(medicine);
+	public void save(Category category) {
+		categoryRepository.save(category);
 	}
 
-	public Medicine get(int id) {
-		return medicineRepository.findById(id).get();
+	public Category get(int id) {
+		return categoryRepository.findById(id).get();
 	}
 
 	public void delete(int id) {
-		medicineRepository.deleteById(id);
+		categoryRepository.deleteById(id);
 	}
 
-	public List<Medicine> search(String keyword) {
-		return medicineRepository.search(keyword);
+	public List<Category> search(String keyword) {
+		return categoryRepository.search(keyword);
 	}
 
 	/*

@@ -12,74 +12,61 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import PharmacyManagementSystem.Entity.Medicine;
-import PharmacyManagementSystem.Service.MedicineService;
+import PharmacyManagementSystem.Entity.Category;
+import PharmacyManagementSystem.Service.CategoryService;
 
 @Controller
 public class CategoryController {
 
 	@Autowired
-	private MedicineService medicineService;
-
-	/*
-	 * @RequestMapping(value = { "/productImage" }, method = RequestMethod.GET)
-	 * public void productImage(HttpServletRequest request, HttpServletResponse
-	 * response, Model model,
-	 * 
-	 * @RequestParam("id") int id) throws IOException { Medicine medicine = null; if
-	 * (id != 0) { medicine = this.medicineService.get(id); } if (medicine != null
-	 * && medicine.getImage() != null) {
-	 * response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-	 * response.getOutputStream().write(medicine.getImage()); }
-	 * response.getOutputStream().close(); }
-	 */
+	private CategoryService categoryService;
 
 	@RequestMapping("/")
 	public String viewHomepage(Model model) {
-		List<Medicine> listMedicines = medicineService.listAll();
-		model.addAttribute("listMedicines", listMedicines);
-		return "index";
+		List<Category> listCategorys = categoryService.listAll();
+		model.addAttribute("listCategorys", listCategorys);
+		return "indexCategory";
 	}
 
-	@RequestMapping("/search")
-	public ModelAndView searchMedicine(@RequestParam String keyword) {
-		List<Medicine> result = medicineService.search(keyword);
-		ModelAndView mav = new ModelAndView("search");
-		mav.addObject("result", result);
+	@RequestMapping("/searchCategory")
+	public ModelAndView searchCategory(@RequestParam String keyword) {
+		List<Category> resultCategory = categoryService.search(keyword);
+		ModelAndView mav = new ModelAndView("searchCategory");
+		mav.addObject("resultCategory", resultCategory);
 		return mav;
 	}
 
-	@RequestMapping("/new")
-	public String showNewMedicineInfo(Model model) {
-		Medicine medicine = new Medicine();
-		model.addAttribute("medicine", medicine);
-		return "newMedicine";
+	@RequestMapping("/newCategory")
+	public String showNewCategoryInfo(Model model) {
+		Category category = new Category();
+		model.addAttribute("category", category);
+		return "newCategory";
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveMedicineInfo(@ModelAttribute("medicine") Medicine medicine) {
-		medicineService.save(medicine);
+	public String saveCategoryInfo(@ModelAttribute("category") Category category) {
+		categoryService.save(category);
 		return "redirect:/";
 	}
 
 	@RequestMapping("/edit/{id}")
-	public ModelAndView editMedicineInfo(@PathVariable(name = "id") int id) {
-		ModelAndView mav = new ModelAndView("editMedicine");
-		Medicine medicine = medicineService.get(id);
-		mav.addObject("medicine", medicine);
+	public ModelAndView editCategoryInfo(@PathVariable(name = "id") int id) {
+		ModelAndView mav = new ModelAndView("editCategory");
+		Category category = categoryService.get(id);
+		mav.addObject("category", category);
 
 		return mav;
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String updateMedicineInfo(@ModelAttribute("medicine") Medicine medicine) {
-		medicineService.save(medicine);
+	public String updateCategoryInfo(@ModelAttribute("category") Category category) {
+		categoryService.save(category);
 		return "redirect:/";
 	}
 
 	@RequestMapping("/delete/{id}")
-	public String deleteMedicineInfo(@PathVariable(name = "id") int id) {
-		medicineService.delete(id);
+	public String deleteCategoryInfo(@PathVariable(name = "id") int id) {
+		categoryService.delete(id);
 		return "redirect:/";
 	}
 }

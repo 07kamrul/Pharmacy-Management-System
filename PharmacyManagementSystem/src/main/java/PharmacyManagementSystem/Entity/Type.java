@@ -23,4 +23,5 @@ public class Type {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int typeId;
 	private String typeName;
+	private String typeDescription;
 }

@@ -21,19 +21,6 @@ public class MedicineController {
 	@Autowired
 	private MedicineService medicineService;
 
-	/*
-	 * @RequestMapping(value = { "/productImage" }, method = RequestMethod.GET)
-	 * public void productImage(HttpServletRequest request, HttpServletResponse
-	 * response, Model model,
-	 * 
-	 * @RequestParam("id") int id) throws IOException { Medicine medicine = null; if
-	 * (id != 0) { medicine = this.medicineService.get(id); } if (medicine != null
-	 * && medicine.getImage() != null) {
-	 * response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-	 * response.getOutputStream().write(medicine.getImage()); }
-	 * response.getOutputStream().close(); }
-	 */
-
 	@RequestMapping("/")
 	public String viewHomepage(Model model) {
 		List<Medicine> listMedicines = medicineService.listAll();
