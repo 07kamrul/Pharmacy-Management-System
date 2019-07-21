@@ -15,23 +15,22 @@
 </head>
 <body>
 	<div align="center">
-		<h1>Add new Category of the Medicine</h1>
+		<h1>Edit Type of the Medicine</h1>
 		<br>
-		<form action="#" th:action="@{/saveCategory}" th:object="${category}"
+		<form action="#" th:action="@{/updateType}" th:object="${type}"
 			method="post">
 			<table border="0" cellpadding="10">
 				<tr>
-					<td>Category Name :</td>
-					<td><input type="text" th:field="*{category_name}" required></td>
+					<td>Type Name :</td>
+					<td><input type="text" th:field="*{type_name}" required></td>
 				</tr>
 				<tr>
-					<td>Category Description :</td>
-					<td><input type="text" th:field="*{category_description}"
-						required></td>
+					<td>Type Description :</td>
+					<td><input type="text" th:field="*{type_description}" required></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td><button type="submit">Save</button></td>
+					<td><button type="submit">Update</button></td>
 				</tr>
 			</table>
 		</form>

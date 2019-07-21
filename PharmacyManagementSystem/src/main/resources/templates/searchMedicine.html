@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Search Result</title>
+</head>
+<body>
+	<div align="center">
+		<h2>Search Result</h2>
+		<table border="1" cellpadding="5">
+			<tr>
+				<th>Student Id</th>
+				<th>Student Name</th>
+				<th>Student CGPA</th>
+				<th>Student Gender</th>
+				<th>Student Phone</th>
+				<th>Student Email</th>
+				<th>Student Country</th>
+				<th>Student Date of Birth</th>
+				<th>Action</th>
+			</tr>
+
+			<tr th:each="student : ${result}">
+				<td th:text="${student.id}">Student ID</td>
+				<td th:text="${student.name}">Student Name</td>
+				<td th:text="${student.cgpa}">Student CGPA</td>
+				<td th:text="${student.gender}">Student Gender</td>
+				<td th:text="${student.phone}">Student Phone</td>
+				<td th:text="${student.email}">Student Email</td>
+				<td th:text="${student.country}">Student Country</td>
+				<td th:text="${student.dob}">Student Date of Birth</td>
+				<td><a th:href="@{'/edit/' + ${student.id}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+					th:href="@{'/delete/' + ${student.id}}">Delete</a></td>
+			</tr>
+		</table>
+		<br> <br>
+
+		<!-- <button class="btn"></button> -->
+		<a href="/"><i class="fa fa-home"> Back to home...</i></a>
+
+
+	</div>
+</body>
+</html>

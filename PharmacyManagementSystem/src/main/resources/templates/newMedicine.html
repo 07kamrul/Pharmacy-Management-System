@@ -17,50 +17,55 @@
 	<div align="center">
 		<h1>Create a new Medicine</h1>
 		<br>
-		<form action="#" th:action="@{/save}" th:object="${medicine}"
+		<form action="#" th:action="@{/saveMedicine}" th:object="${medicine}"
 			method="post" enctype="multipart/form-data">
 			<table border="0" cellpadding="10">
 				<tr>
 					<td>Medicine Image:</td>
-					<td><input type="file" th:field="*{image}"></td>
+					<td><input type="file" th:field="*{image}" required></td>
 				</tr>
 				<tr>
 					<td>Medicine Name:</td>
-					<td><input type="text" th:field="*{medicine_name}"></td>
+					<td><input type="text" th:field="*{medicine_name}" required></td>
 				</tr>
 				<tr>
 					<td>Medicine Power:</td>
-					<td><input type="text" th:field="*{medicine_power}"></td>
+					<td><input type="text" th:field="*{medicine_power}" required></td>
 				</tr>
 				<tr>
 					<td>Medicine Sell Price:</td>
-					<td><input type="number" step="any" th:field="*{sell_price}"></td>
+					<td><input type="number" step="any" th:field="*{sell_price}"
+						required></td>
 				</tr>
 				<tr>
 					<td>Medicine Generice Name:</td>
-					<td><input type="text" th:field="*{generice_name}"></td>
+					<td><input type="text" th:field="*{generice_name}" required></td>
 				</tr>
 				<tr>
 					<td>Medicine Type:</td>
-					<td><select name="medicinetype" th:field="*{type}">
-					<td th:text="${medicine.type}">Medicine Type</td>
-							<option th:text="${type.type_name}">Type Name</option>
+					<td><select th:field="*{type}" name="medicinetype">
+							<option value="" th:each="type : ${listTypeMedicine}"
+								th:value="${type.type_name}" th:text="${type.type_name}">Type
+								Name</option>
 					</select></td>
 				</tr>
 				<tr>
 					<td>Medicine Category:</td>
-					<td><select name="medicineCategory" th:field="*{category}">
-							<option th:text="${category.category_name}">Category Name</option>
+					<td><select th:field="*{category}" name="medicinetype">
+							<option value="" th:each="category : ${listCategoryMedicine}"
+								th:value="${category.category_name}"
+								th:text="${category.category_name}">Type Name</option>
 					</select></td>
 				</tr>
 				<tr>
 					<td>Medicine Manufacturer Name:</td>
-					<td><input type="text" th:field="*{manufacturer_name}"></td>
+					<td><input type="text" th:field="*{manufacturer_name}"
+						required></td>
 				</tr>
 				<tr>
 					<td>Medicine Manufacturer Price:</td>
 					<td><input type="text" step="any"
-						th:field="*{manufacturer_price}"></td>
+						th:field="*{manufacturer_price}" required></td>
 				</tr>
 				<tr>
 					<td></td>

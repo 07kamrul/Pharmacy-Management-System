@@ -12,14 +12,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import PharmacyManagementSystem.Entity.Category;
 import PharmacyManagementSystem.Entity.Medicine;
+import PharmacyManagementSystem.Service.CategoryService;
 import PharmacyManagementSystem.Service.MedicineService;
+import PharmacyManagementSystem.Entity.Type;
+import PharmacyManagementSystem.Service.TypeService;
 
 @Controller
 public class MedicineController {
 
 	@Autowired
 	private MedicineService medicineService;
+	
+	@Autowired
+	private TypeService typeService;
+	
+	@Autowired
+	private CategoryService categoryService;
 
 	@RequestMapping("/")
 	public String viewHomepage(Model model) {
@@ -38,8 +48,12 @@ public class MedicineController {
 
 	@RequestMapping("/newMedicine")
 	public String showNewMedicineInfo(Model model) {
+		List<Type> listTypeMedicine = typeService.listAllType();
+		List<Category> listCategoryMedicine = categoryService.listAllCategory();
 		Medicine medicine = new Medicine();
 		model.addAttribute("medicine", medicine);
+		model.addAttribute("listTypeMedicine",listTypeMedicine);
+		model.addAttribute("listCategoryMedicine",listCategoryMedicine);
 		return "newMedicine";
 	}
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<title>Search Category</title>
+</head>
+<body>
+	<div align="center">
+		<h2>Search Category</h2>
+		<table border="1" cellpadding="5">
+			<tr>
+				<th>Category Name</th>
+				<th>Category Description</th>
+				<th>Action</th>
+			</tr>
+
+			<tr th:each="category : ${resultCategory}">
+				<td th:text="${category.category_name}">Category Name</td>
+				<td th:text="${category.category_description}">Category
+					Description</td>
+				<td><a th:href="@{'/editCategory/' + ${category.category_id}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+					th:href="@{'/deleteCategory/' + ${category.category_id}}">Delete</a></td>
+			</tr>
+		</table>
+		<br> <br>
+
+		<!-- <button class="btn"></button> -->
+		<a href="/"><i class="fa fa-home"> Back to home...</i></a>
+
+
+	</div>
+</body>
+</html>

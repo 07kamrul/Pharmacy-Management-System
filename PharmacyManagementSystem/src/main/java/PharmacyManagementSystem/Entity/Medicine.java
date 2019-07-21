@@ -53,7 +53,7 @@ public class Medicine {
 	private float sell_price;
 
     @Lob
-    @Column(name = "Image", length = Integer.MAX_VALUE, nullable = true)
+    @Column(name = "Image", length = Integer.MAX_VALUE, nullable = false)
 	private byte[] image;
 
 	@ManyToOne(fetch= FetchType.LAZY)

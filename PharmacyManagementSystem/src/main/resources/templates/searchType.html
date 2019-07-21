@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<title>Search Result</title>
+</head>
+<body>
+	<div align="center">
+		<h2>Search Type</h2>
+		<table border="1" cellpadding="5">
+			<tr>
+				<th>Type Name</th>
+				<th>Type Description</th>
+				<th>Action</th>
+			</tr>
+
+			<tr th:each="type : ${resultType}">
+				<td th:text="${type.type_name}">Type Name</td>
+				<td th:text="${type.type_description}">Type Description</td>
+				<td><a th:href="@{'/editType/' + ${type.type_id}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+					th:href="@{'/deleteType/' + ${type.type_id}}">Delete</a></td>
+			</tr>
+		</table>
+		<br> <br>
+
+		<!-- <button class="btn"></button> -->
+		<a href="/"><i class="fa fa-home"> Back to home...</i></a>
+
+
+	</div>
+</body>
+</html>
