@@ -43,7 +43,7 @@
 				</tr>
 				<tr>
 					<td>Medicine Type:</td>
-					<td><select th:field="*{type}" name="medicinetype">
+					<td><select th:field="*{type}" name="medicinetype" required>
 							<option value="" th:each="type : ${listTypeMedicine}"
 								th:value="${type.type_name}" th:text="${type.type_name}">Type
 								Name</option>
@@ -51,7 +51,8 @@
 				</tr>
 				<tr>
 					<td>Medicine Category:</td>
-					<td><select th:field="*{category}" name="medicinetype">
+					<td><select th:field="*{category}" name="medicinetype"
+						required>
 							<option value="" th:each="category : ${listCategoryMedicine}"
 								th:value="${category.category_name}"
 								th:text="${category.category_name}">Type Name</option>
@@ -69,7 +70,8 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><button type="submit">Save</button></td>
+					<td><button type="submit" class="btn btn-success">Save</button>
+						<a class="btn btn-primary" href="/indexMedicine" role="button">Cancel</a></td>
 				</tr>
 
 			</table>

@@ -19,9 +19,9 @@
 		<form method="GET" th:action="@{/searchCategory}">
 			<input type="text" name="keyword"
 				placeholder="Enter Medcine Name/ Generic Name/ Type/ Category/ Manufacturer name......." />
-			&nbsp; <input type="submit" value="Search" />
-				<i class="fa fa-search">Search</i>
-			 <a href="/"><i	class="fa fa-home"> Back to home...</i></a>
+			&nbsp; <input type="submit" value="Search" /> <i
+				class="fa fa-search">Search</i>
+
 		</form>
 		<br> <a href="newCategory">Add new Category</a> <br> <br>
 		<table border="1" cellpadding="10">
@@ -35,14 +35,16 @@
 			<tbody>
 				<tr th:each="category : ${listCategories}">
 					<td th:text="${category.category_name}">Category Name</td>
-					<td th:text="${category.category_description}">Category Description</td>
-					
+					<td th:text="${category.category_description}">Category
+						Description</td>
+
 					<td><a th:href="@{'/editCategory/' + ${category.category_id}}">Edit</a>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
 						th:href="@{'/deleteCategory/' + ${category.category_id}}">Delete</a></td>
 				</tr>
 			</tbody>
 		</table>
+		<a href="/"><i class="fa fa-home"> Back to home...</i></a>
 	</div>
 </body>
 </html>

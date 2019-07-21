@@ -11,14 +11,14 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<title>Edit Medicine</title>
+<title>New Medicine</title>
 </head>
 <body>
 	<div align="center">
-		<h1>Edit a new Medicine</h1>
+		<h1>Create a new Medicine</h1>
 		<br>
-		<form action="#" th:action="@{/saveMedicine}" th:object="${medicine}"
-			method="post" enctype="multipart/form-data">
+		<form action="#" th:action="@{/updateMedicine}"
+			th:object="${medicine}" method="post" enctype="multipart/form-data">
 			<table border="0" cellpadding="10">
 				<tr>
 					<td>Medicine Image:</td>
@@ -43,16 +43,19 @@
 				</tr>
 				<tr>
 					<td>Medicine Type:</td>
-					<td><select name="medicinetype" th:field="*{type}">
-							<!-- <td th:text="${medicine.type}">Medicine Type</td> -->
-							<option th:text="${type.type_name}">Type Name</option>
+					<td><select th:field="*{type}" name="medicinetype" required>
+							<option value="" th:each="type : ${listTypeMedicine}"
+								th:value="${type.type_name}" th:text="${type.type_name}">Type
+								Name</option>
 					</select></td>
 				</tr>
 				<tr>
 					<td>Medicine Category:</td>
-					<td><select name="medicineCategory" th:field="*{category}">
-							<option th:text="${category.category_name}">Category
-								Name</option>
+					<td><select th:field="*{category}" name="medicinetype"
+						required>
+							<option value="" th:each="category : ${listCategoryMedicine}"
+								th:value="${category.category_name}"
+								th:text="${category.category_name}">Type Name</option>
 					</select></td>
 				</tr>
 				<tr>
@@ -67,7 +70,8 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><button type="submit">Update</button></td>
+					<td><button type="submit" class="btn btn-success">Save</button>
+						<a class="btn btn-primary" href="/indexMedicine" role="button">Cancel</a></td>
 				</tr>
 
 			</table>

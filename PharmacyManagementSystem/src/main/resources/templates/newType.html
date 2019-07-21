@@ -11,7 +11,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<title>Add Category</title>
+<title>Add Type</title>
 </head>
 <body>
 	<div align="center">
@@ -26,12 +26,12 @@
 				</tr>
 				<tr>
 					<td>Type Description :</td>
-					<td><input type="text" th:field="*{type_description}"
-						required></td>
+					<td><input type="text" th:field="*{type_description}" required></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td><button type="submit">Save</button></td>
+					<td><button type="submit" class="btn btn-success">Save</button>
+						<a class="btn btn-primary" href="/indexCategory" role="button">Cancel</a></td>
 				</tr>
 			</table>
 		</form>
