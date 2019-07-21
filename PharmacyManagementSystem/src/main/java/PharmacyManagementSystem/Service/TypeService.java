@@ -14,24 +14,24 @@ public class TypeService {
 	@Autowired
 	private TypeRepository typeRepository;
 
-	public List<Type> listAll() {
+	public List<Type> listAllType() {
 		return (List<Type>) typeRepository.findAll();
 	}
 
-	public void save(Type type) {
+	public void saveType(Type type) {
 		typeRepository.save(type);
 	}
 
-	public Type get(int id) {
+	public Type getType(int id) {
 		return typeRepository.findById(id).get();
 	}
 
-	public void delete(int id) {
+	public void deleteType(int id) {
 		typeRepository.deleteById(id);
 	}
 
-	public List<Type> search(String keyword) {
-		return typeRepository.search(keyword);
+	public List<Type> searchType(String keyword) {
+		return typeRepository.searchType(keyword);
 	}
 
 	/*

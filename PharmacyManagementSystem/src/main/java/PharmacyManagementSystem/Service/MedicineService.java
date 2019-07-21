@@ -14,24 +14,24 @@ public class MedicineService {
 	@Autowired
 	private MedicineRepository medicineRepository;
 
-	public List<Medicine> listAll() {
+	public List<Medicine> listAllMedicine() {
 		return (List<Medicine>) medicineRepository.findAll();
 	}
 
-	public void save(Medicine medicine) {
+	public void saveMedicine(Medicine medicine) {
 		medicineRepository.save(medicine);
 	}
 
-	public Medicine get(int id) {
+	public Medicine getMedicine(int id) {
 		return medicineRepository.findById(id).get();
 	}
 
-	public void delete(int id) {
+	public void deleteMedicine(int id) {
 		medicineRepository.deleteById(id);
 	}
 
-	public List<Medicine> search(String keyword) {
-		return medicineRepository.search(keyword);
+	public List<Medicine> searchMedicine(String keyword) {
+		return medicineRepository.searchMedicine(keyword);
 	}
 
 	/*

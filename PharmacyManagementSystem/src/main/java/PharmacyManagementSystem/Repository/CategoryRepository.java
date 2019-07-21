@@ -10,9 +10,11 @@ import PharmacyManagementSystem.Entity.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
-	@Query(value = "SELECT c FROM Category c WHERE c.categoryName LIKE '%' || :keyword || '%'"
-			+ " OR c.categoryDescription LIKE '%' || :keyword || '%'")
-
-	public List<Category> search(@Param("keyword") String keyword);
+	
+	  @Query(value =
+	  "SELECT c FROM Category c WHERE c.category_name LIKE '%' || :keyword || '%'" +
+	  " OR c.category_description LIKE '%' || :keyword || '%'")
+	 
+	public List<Category> searchCategory(@Param("keyword") String keyword);
 
 }

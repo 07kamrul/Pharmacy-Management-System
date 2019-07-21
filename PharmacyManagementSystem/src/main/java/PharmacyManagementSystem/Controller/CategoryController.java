@@ -21,16 +21,16 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@RequestMapping("/")
+	@RequestMapping("/indexCategory")
 	public String viewHomepage(Model model) {
-		List<Category> listCategorys = categoryService.listAll();
-		model.addAttribute("listCategorys", listCategorys);
+		List<Category> listCategories = categoryService.listAllCategory();
+		model.addAttribute("listCategories", listCategories);
 		return "indexCategory";
 	}
 
 	@RequestMapping("/searchCategory")
 	public ModelAndView searchCategory(@RequestParam String keyword) {
-		List<Category> resultCategory = categoryService.search(keyword);
+		List<Category> resultCategory = categoryService.searchCategory(keyword);
 		ModelAndView mav = new ModelAndView("searchCategory");
 		mav.addObject("resultCategory", resultCategory);
 		return mav;
@@ -43,30 +43,30 @@ public class CategoryController {
 		return "newCategory";
 	}
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveCategory", method = RequestMethod.POST)
 	public String saveCategoryInfo(@ModelAttribute("category") Category category) {
-		categoryService.save(category);
-		return "redirect:/";
+		categoryService.saveCategory(category);
+		return "redirect:/indexCategory";
 	}
 
-	@RequestMapping("/edit/{id}")
-	public ModelAndView editCategoryInfo(@PathVariable(name = "id") int id) {
+	@RequestMapping("/editCategory/{category_id}")
+	public ModelAndView editCategoryInfo(@PathVariable(name = "category_id") int category_id) {
 		ModelAndView mav = new ModelAndView("editCategory");
-		Category category = categoryService.get(id);
+		Category category = categoryService.getCategory(category_id);
 		mav.addObject("category", category);
 
 		return mav;
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateCategory", method = RequestMethod.GET)
 	public String updateCategoryInfo(@ModelAttribute("category") Category category) {
-		categoryService.save(category);
-		return "redirect:/";
+		categoryService.saveCategory(category);
+		return "redirect:/indexCategory";
 	}
 
-	@RequestMapping("/delete/{id}")
-	public String deleteCategoryInfo(@PathVariable(name = "id") int id) {
-		categoryService.delete(id);
-		return "redirect:/";
+	@RequestMapping("/deleteCategory/{category_id}")
+	public String deleteCategoryInfo(@PathVariable(name = "category_id") int category_id) {
+		categoryService.deleteCategory(category_id);
+		return "redirect:/indexCategory";
 	}
 }

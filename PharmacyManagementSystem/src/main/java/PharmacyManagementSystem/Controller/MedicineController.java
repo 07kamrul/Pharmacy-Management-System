@@ -23,50 +23,50 @@ public class MedicineController {
 
 	@RequestMapping("/")
 	public String viewHomepage(Model model) {
-		List<Medicine> listMedicines = medicineService.listAll();
+		List<Medicine> listMedicines = medicineService.listAllMedicine();
 		model.addAttribute("listMedicines", listMedicines);
-		return "index";
+		return "indexMedicine";
 	}
 
-	@RequestMapping("/search")
+	@RequestMapping("/searchMedicine")
 	public ModelAndView searchMedicine(@RequestParam String keyword) {
-		List<Medicine> result = medicineService.search(keyword);
+		List<Medicine> result = medicineService.searchMedicine(keyword);
 		ModelAndView mav = new ModelAndView("search");
 		mav.addObject("result", result);
 		return mav;
 	}
 
-	@RequestMapping("/new")
+	@RequestMapping("/newMedicine")
 	public String showNewMedicineInfo(Model model) {
 		Medicine medicine = new Medicine();
 		model.addAttribute("medicine", medicine);
 		return "newMedicine";
 	}
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveMedicine", method = RequestMethod.POST)
 	public String saveMedicineInfo(@ModelAttribute("medicine") Medicine medicine) {
-		medicineService.save(medicine);
+		medicineService.saveMedicine(medicine);
 		return "redirect:/";
 	}
 
-	@RequestMapping("/edit/{id}")
-	public ModelAndView editMedicineInfo(@PathVariable(name = "id") int id) {
+	@RequestMapping("/edit/{medicine_id}")
+	public ModelAndView editMedicineInfo(@PathVariable(name = "medicine_id") int medicine_id) {
 		ModelAndView mav = new ModelAndView("editMedicine");
-		Medicine medicine = medicineService.get(id);
+		Medicine medicine = medicineService.getMedicine(medicine_id);
 		mav.addObject("medicine", medicine);
 
 		return mav;
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateMedicine", method = RequestMethod.GET)
 	public String updateMedicineInfo(@ModelAttribute("medicine") Medicine medicine) {
-		medicineService.save(medicine);
+		medicineService.saveMedicine(medicine);
 		return "redirect:/";
 	}
 
-	@RequestMapping("/delete/{id}")
-	public String deleteMedicineInfo(@PathVariable(name = "id") int id) {
-		medicineService.delete(id);
+	@RequestMapping("/delete/{medicine_id}")
+	public String deleteMedicineInfo(@PathVariable(name = "medicine_id") int medicine_id) {
+		medicineService.deleteMedicine(medicine_id);
 		return "redirect:/";
 	}
 }

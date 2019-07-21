@@ -9,13 +9,17 @@ import org.springframework.data.repository.query.Param;
 import PharmacyManagementSystem.Entity.Medicine;
 
 public interface MedicineRepository extends JpaRepository<Medicine, Integer> {
-
-	@Query(value = "SELECT m FROM Medicine m WHERE m.medicineName LIKE '%' || :keyword || '%'"
-			+ " OR m.genericeName LIKE '%' || :keyword || '%'" + " OR m.power LIKE '%' || :keyword || '%'"
-			+ " OR m.type LIKE '%' || :keyword || '%'" + " OR m.category LIKE '%' || :keyword || '%'"
-			+ " OR m.manufacturerName LIKE '%' || :keyword || '%'"
-			+ " OR m.manufacturerPrice LIKE '%' || :keyword || '%'" + " OR m.sellPrice LIKE '%' || :keyword || '%'")
-
-	public List<Medicine> search(@Param("keyword") String keyword);
+	
+	  @Query(value =
+	  "SELECT m FROM Medicine m WHERE m.medicine_name LIKE '%' || :keyword || '%'" +
+	  " OR m.generice_name LIKE '%' || :keyword || '%'" +
+	  " OR m.medicine_power LIKE '%' || :keyword || '%'" +
+	  " OR m.type LIKE '%' || :keyword || '%'" +
+	  " OR m.category LIKE '%' || :keyword || '%'" +
+	  " OR m.manufacturer_name LIKE '%' || :keyword || '%'" +
+	  " OR m.manufacturer_price LIKE '%' || :keyword || '%'" +
+	  " OR m.sell_price LIKE '%' || :keyword || '%'")
+	 
+	public List<Medicine> searchMedicine(@Param("keyword") String keyword);
 
 }

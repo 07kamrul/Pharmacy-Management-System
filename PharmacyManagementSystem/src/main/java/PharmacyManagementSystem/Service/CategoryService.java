@@ -14,24 +14,24 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 
-	public List<Category> listAll() {
+	public List<Category> listAllCategory() {
 		return (List<Category>) categoryRepository.findAll();
 	}
 
-	public void save(Category category) {
+	public void saveCategory(Category category) {
 		categoryRepository.save(category);
 	}
 
-	public Category get(int id) {
+	public Category getCategory(int id) {
 		return categoryRepository.findById(id).get();
 	}
 
-	public void delete(int id) {
+	public void deleteCategory(int id) {
 		categoryRepository.deleteById(id);
 	}
 
-	public List<Category> search(String keyword) {
-		return categoryRepository.search(keyword);
+	public List<Category> searchCategory(String keyword) {
+		return categoryRepository.searchCategory(keyword);
 	}
 
 	/*

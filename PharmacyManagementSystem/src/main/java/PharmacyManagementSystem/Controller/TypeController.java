@@ -21,16 +21,16 @@ public class TypeController {
 	@Autowired
 	private TypeService typeService;
 
-	@RequestMapping("/")
+	@RequestMapping("/indexType")
 	public String viewHomepage(Model model) {
-		List<Type> listTypes = typeService.listAll();
+		List<Type> listTypes = typeService.listAllType();
 		model.addAttribute("listTypes", listTypes);
 		return "indexType";
 	}
 
 	@RequestMapping("/searchType")
 	public ModelAndView searchType(@RequestParam String keyword) {
-		List<Type> resultType = typeService.search(keyword);
+		List<Type> resultType = typeService.searchType(keyword);
 		ModelAndView mav = new ModelAndView("searchType");
 		mav.addObject("resultType", resultType);
 		return mav;
@@ -43,30 +43,30 @@ public class TypeController {
 		return "newType";
 	}
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveType", method = RequestMethod.POST)
 	public String saveTypeInfo(@ModelAttribute("type") Type type) {
-		typeService.save(type);
-		return "redirect:/";
+		typeService.saveType(type);
+		return "redirect:/indexType";
 	}
 
-	@RequestMapping("/edit/{id}")
-	public ModelAndView editTypeInfo(@PathVariable(name = "id") int id) {
+	@RequestMapping("/editType/{type_id}")
+	public ModelAndView editTypeInfo(@PathVariable(name = "type_id") int type_id) {
 		ModelAndView mav = new ModelAndView("editType");
-		Type type = typeService.get(id);
+		Type type = typeService.getType(type_id);
 		mav.addObject("type", type);
 
 		return mav;
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateType", method = RequestMethod.GET)
 	public String updateTypeInfo(@ModelAttribute("type") Type type) {
-		typeService.save(type);
-		return "redirect:/";
+		typeService.saveType(type);
+		return "redirect:/indexType";
 	}
 
-	@RequestMapping("/delete/{id}")
-	public String deleteTypeInfo(@PathVariable(name = "id") int id) {
-		typeService.delete(id);
-		return "redirect:/";
+	@RequestMapping("/deleteType/{type_id}")
+	public String deleteTypeInfo(@PathVariable(name = "type_id") int type_id) {
+		typeService.deleteType(type_id);
+		return "redirect:/indexType";
 	}
 }
