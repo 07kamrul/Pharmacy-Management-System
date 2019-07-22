@@ -24,10 +24,10 @@ public class MedicineController {
 
 	@Autowired
 	private MedicineService medicineService;
-	
+
 	@Autowired
 	private TypeService typeService;
-	
+
 	@Autowired
 	private CategoryService categoryService;
 
@@ -40,9 +40,9 @@ public class MedicineController {
 
 	@RequestMapping("/searchMedicine")
 	public ModelAndView searchMedicine(@RequestParam String keyword) {
-		List<Medicine> result = medicineService.searchMedicine(keyword);
-		ModelAndView mav = new ModelAndView("search");
-		mav.addObject("result", result);
+		List<Medicine> resultMedicine = medicineService.searchMedicine(keyword);
+		ModelAndView mav = new ModelAndView("searchMedicine");
+		mav.addObject("resultMedicine", resultMedicine);
 		return mav;
 	}
 
@@ -52,8 +52,8 @@ public class MedicineController {
 		List<Category> listCategoryMedicine = categoryService.listAllCategory();
 		Medicine medicine = new Medicine();
 		model.addAttribute("medicine", medicine);
-		model.addAttribute("listTypeMedicine",listTypeMedicine);
-		model.addAttribute("listCategoryMedicine",listCategoryMedicine);
+		model.addAttribute("listTypeMedicine", listTypeMedicine);
+		model.addAttribute("listCategoryMedicine", listCategoryMedicine);
 		return "newMedicine";
 	}
 
