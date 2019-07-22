@@ -63,7 +63,7 @@ public class MedicineController {
 		return "redirect:/";
 	}
 
-	@RequestMapping("/edit/{medicine_id}")
+	@RequestMapping("/editMedicine/{medicine_id}")
 	public ModelAndView editMedicineInfo(@PathVariable(name = "medicine_id") int medicine_id) {
 		ModelAndView mav = new ModelAndView("editMedicine");
 		Medicine medicine = medicineService.getMedicine(medicine_id);
@@ -78,7 +78,7 @@ public class MedicineController {
 		return "redirect:/";
 	}
 
-	@RequestMapping("/delete/{medicine_id}")
+	@RequestMapping("/deleteMedicine/{medicine_id}")
 	public String deleteMedicineInfo(@PathVariable(name = "medicine_id") int medicine_id) {
 		medicineService.deleteMedicine(medicine_id);
 		return "redirect:/";

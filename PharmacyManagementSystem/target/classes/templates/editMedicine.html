@@ -21,6 +21,11 @@
 			th:object="${medicine}" method="post" enctype="multipart/form-data">
 			<table border="0" cellpadding="10">
 				<tr>
+					<td>Medicine ID</td>
+					<td><input type="text" th:field="*{medicine_id}"
+						readonly="readonly"></td>
+				</tr>
+				<tr>
 					<td>Medicine Image:</td>
 					<td><input type="file" th:field="*{image}" required></td>
 				</tr>
