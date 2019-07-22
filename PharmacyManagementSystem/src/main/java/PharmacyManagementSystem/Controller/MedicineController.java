@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import PharmacyManagementSystem.Entity.Category;
@@ -58,7 +59,8 @@ public class MedicineController {
 	}
 
 	@RequestMapping(value = "/saveMedicine", method = RequestMethod.POST)
-	public String saveMedicineInfo(@ModelAttribute("medicine") Medicine medicine) {
+	public String saveMedicineInfo(Model model, @RequestParam("files") MultipartFile[] files,
+			@ModelAttribute("medicine") Medicine medicine) {
 		medicineService.saveMedicine(medicine);
 		return "redirect:/";
 	}
