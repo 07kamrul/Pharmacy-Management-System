@@ -84,22 +84,22 @@
 				<tr>
 					<!-- 	<th>Student Id</th>
 					-->
-					<th rowspan="2">Medicine Image</th>
-					<th rowspan="2">Medicine Name</th>
-					<th rowspan="2">Medicine Power</th>
-					<th rowspan="2">Medicine Sell Price</th>
-					<th colspan="2">Medicine Stored</th>
-					<th rowspan="2">Medicine Generice Name</th>
-					<th rowspan="2">Medicine Manufacturer Name</th>
-					<th rowspan="2">Medicine Type</th>
-					<th rowspan="2">Medicine Category</th>
-					<th rowspan="2">Medicine Manufacturer Price</th>
-					<th rowspan="2">Action</th>
+					<th>Medicine Image</th>
+					<th>Medicine Name</th>
+					<th>Medicine Power</th>
+					<th>Medicine Sell Price</th>
+					<th>Medicine Stored</th>
+					<th>Medicine Generice Name</th>
+					<th>Medicine Manufacturer Name</th>
+					<th>Medicine Type</th>
+					<th>Medicine Category</th>
+					<th>Medicine Manufacturer Price</th>
+					<th>Action</th>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<th>Column No</th>
 					<th>Row No</th>
-				</tr>
+				</tr> -->
 			</thead>
 			<tbody>
 				<tr th:each="medicine : ${listMedicines}">
@@ -109,13 +109,12 @@
 					<td th:text="${medicine.medicine_name}">Medicine Name</td>
 					<td th:text="${medicine.medicine_power}">Medicine Power</td>
 					<td th:text="${medicine.sell_price}">Medicine Sell Price</td>
-					<td th:text="${medicine.column_no}">Column No</td>
-					<td th:text="${medicine.row_no}">Row No</td>
+					<td th:text="${medicine.medicine_stored}">Medicine Stored</td>
 					<td th:text="${medicine.generice_name}">Medicine Generice Name</td>
 					<td th:text="${medicine.manufacturer_name}">Medicine
 						Manufacturer Name</td>
-					<td th:text="${medicine.type}">Medicine Type</td>
-					<td th:text="${medicine.category}">Medicine Category</td>
+					<td th:text="${medicine.type.type_name}">Medicine Type</td>
+					<td th:text="${medicine.category.category_name}">Medicine Category</td>
 					<td th:text="${medicine.manufacturer_price}">Medicine
 						Manufacturer Price</td>
 					<td><a th:href="@{'/editMedicine/' + ${medicine.medicine_id}}"

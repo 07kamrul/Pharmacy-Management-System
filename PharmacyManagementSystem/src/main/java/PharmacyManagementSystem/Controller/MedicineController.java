@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import PharmacyManagementSystem.Entity.Category;
@@ -51,22 +50,31 @@ public class MedicineController {
 	public String showNewMedicineInfo(Model model) {
 		List<Type> listTypeMedicine = typeService.listAllType();
 		List<Category> listCategoryMedicine = categoryService.listAllCategory();
-		Medicine medicine = new Medicine();
-		model.addAttribute("medicine", medicine);
+
 		model.addAttribute("listTypeMedicine", listTypeMedicine);
 		model.addAttribute("listCategoryMedicine", listCategoryMedicine);
+
+		Medicine medicine = new Medicine();
+		model.addAttribute("medicine", medicine);
 		return "newMedicine";
 	}
 
 	@RequestMapping(value = "/saveMedicine", method = RequestMethod.POST)
-	public String saveMedicineInfo(Model model, @RequestParam("files") MultipartFile[] files,
-			@ModelAttribute("medicine") Medicine medicine) {
+	public String saveMedicineInfo(@ModelAttribute("medicine") Medicine medicine) {
 		medicineService.saveMedicine(medicine);
+//		
+//		System.out.println("Medicine name :"+medicine.getMedicine_name() + "Medicine price : "+medicine.getManufacturer_price());
 		return "redirect:/";
 	}
 
 	@RequestMapping("/editMedicine/{medicine_id}")
-	public ModelAndView editMedicineInfo(@PathVariable(name = "medicine_id") int medicine_id) {
+	public ModelAndView editMedicineInfo(@PathVariable(name = "medicine_id") int medicine_id, Model model) {
+		List<Type> listTypeMedicine = typeService.listAllType();
+		List<Category> listCategoryMedicine = categoryService.listAllCategory();
+
+		model.addAttribute("listTypeMedicine", listTypeMedicine);
+		model.addAttribute("listCategoryMedicine", listCategoryMedicine);
+
 		ModelAndView mav = new ModelAndView("editMedicine");
 		Medicine medicine = medicineService.getMedicine(medicine_id);
 		mav.addObject("medicine", medicine);
@@ -76,7 +84,7 @@ public class MedicineController {
 
 	@RequestMapping(value = "/updateMedicine", method = RequestMethod.GET)
 	public String updateMedicineInfo(@ModelAttribute("medicine") Medicine medicine) {
-		medicineService.saveMedicine(medicine);
+		medicineService.updateMedicine(medicine);
 		return "redirect:/";
 	}
 

@@ -21,7 +21,9 @@ public class MedicineService {
 	public void saveMedicine(Medicine medicine) {
 		medicineRepository.save(medicine);
 	}
-
+	public void updateMedicine(Medicine medicine) {
+		medicineRepository.save(medicine);
+	}
 	public Medicine getMedicine(int id) {
 		return medicineRepository.findById(id).get();
 	}

@@ -15,10 +15,10 @@
 </head>
 <body>
 	<div align="center">
-		<h1>Create a new Medicine</h1>
+		<h1>Modify a new Medicine</h1>
 		<br>
 		<form action="#" th:action="@{/updateMedicine}"
-			th:object="${medicine}" method="post" enctype="multipart/form-data">
+			th:object="${medicine}" method="PUT" enctype="multipart/form-data">
 			<table border="0" cellpadding="10">
 				<tr>
 					<td>Medicine ID</td>
@@ -27,7 +27,7 @@
 				</tr>
 				<tr>
 					<td>Medicine Image:</td>
-					<td><input type="file" th:field="*{image}" required></td>
+					<td><input type="file" th:field="*{image}" ></td>
 				</tr>
 				<tr>
 					<td>Medicine Name:</td>
@@ -43,6 +43,10 @@
 						required></td>
 				</tr>
 				<tr>
+					<td>Medicine Stored :</td>
+					<td><input type="text" th:field="*{medicine_stored}" required></td>
+				</tr>
+				<tr>
 					<td>Medicine Generice Name:</td>
 					<td><input type="text" th:field="*{generice_name}" required></td>
 				</tr>
@@ -50,7 +54,7 @@
 					<td>Medicine Type:</td>
 					<td><select th:field="*{type}" name="medicinetype" required>
 							<option value="" th:each="type : ${listTypeMedicine}"
-								th:value="${type.type_name}" th:text="${type.type_name}">Type
+								th:value="${type.type_id}" th:text="${type.type_name}">Type
 								Name</option>
 					</select></td>
 				</tr>
@@ -59,7 +63,7 @@
 					<td><select th:field="*{category}" name="medicinetype"
 						required>
 							<option value="" th:each="category : ${listCategoryMedicine}"
-								th:value="${category.category_name}"
+								th:value="${category.category_id}"
 								th:text="${category.category_name}">Type Name</option>
 					</select></td>
 				</tr>
@@ -76,7 +80,7 @@
 				<tr>
 					<td></td>
 					<td><button type="submit" class="btn btn-success">Save</button>
-						<a class="btn btn-primary" href="/indexMedicine" role="button">Cancel</a></td>
+						<a class="btn btn-primary" href="/" role="button">Cancel</a></td>
 				</tr>
 
 			</table>

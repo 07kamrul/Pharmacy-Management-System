@@ -61,12 +61,12 @@
 		<br>
 		<h2>Create a new Medicine</h2>
 		<form action="#" th:action="@{/saveMedicine}" th:object="${medicine}"
-			method="post" enctype="multipart/form-data">
+			method="post">
 			<table border="0" cellpadding="10">
 
 				<tr>
 					<td>Medicine Image :</td>
-					<td><input type="file" th:field="*{image}" required></td>
+					<td><input type="file" th:field="*{image}"></td>
 				</tr>
 				<tr>
 					<td>Medicine Name :</td>
@@ -84,6 +84,11 @@
 						placeholder="Medicine sell price..." required></td>
 				</tr>
 				<tr>
+					<td>Medicine Stored :</td>
+					<td><input type="text" th:field="*{medicine_stored}"
+						placeholder="Medicine stored here..." required></td>
+				</tr>
+				<tr>
 					<td>Medicine Generice Name :</td>
 					<td><input type="text" th:field="*{generice_name}"
 						placeholder="Generice name..." required></td>
@@ -92,16 +97,16 @@
 					<td>Medicine Type :</td>
 					<td><select th:field="*{type}" name="medicinetype" required>
 							<option value="" th:each="type : ${listTypeMedicine}"
-								th:value="${type.type_name}" th:text="${type.type_name}">Type
+								th:value="${type.type_id}" th:text="${type.type_name}">Type
 								Name</option>
 					</select></td>
 				</tr>
 				<tr>
 					<td>Medicine Category :</td>
-					<td><select th:field="*{category}" name="medicinetype"
+					<td><select th:field="*{category}" name="medicineCategory"
 						required>
 							<option value="" th:each="category : ${listCategoryMedicine}"
-								th:value="${category.category_name}"
+								th:value="${category.category_id}"
 								th:text="${category.category_name}">Type Name</option>
 					</select></td>
 				</tr>

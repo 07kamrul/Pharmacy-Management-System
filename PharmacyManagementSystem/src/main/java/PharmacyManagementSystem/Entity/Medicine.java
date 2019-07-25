@@ -25,43 +25,40 @@ public class Medicine {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "medicine_id", nullable = false)
+	@Column(name = "medicine_id", nullable = false)
 	private int medicine_id;
 
-    @Column(name = "medicine_name", length = 255, nullable = false)
+	@Column(name = "medicine_name", length = 255, nullable = false)
 	private String medicine_name;
-    
-    @Column(name = "generice_name", length = 255, nullable = false)
-    private String generice_name;
-    
-    @Column(name = "medicine_power", length = 255, nullable = false)
+
+	@Column(name = "generice_name", length = 255, nullable = false)
+	private String generice_name;
+
+	@Column(name = "medicine_power", length = 255, nullable = false)
 	private String medicine_power;
-    
-    @Column(name = "manufacturer_name", length = 255, nullable = false)
+
+	@Column(name = "manufacturer_name", length = 255, nullable = false)
 	private String manufacturer_name;
-    
-    @Column(name = "column_no", length = 255, nullable = false)
-	private String column_no;
-    
-    @Column(name = "row_no", length = 255, nullable = false)
-	private String row_no;
-    
-    @Column(name = "manufacturer_price", length = 255, nullable = false)
+
+	@Column(name = "medicine_stored", length = 255, nullable = false)
+	private String medicine_stored;
+
+	@Column(name = "manufacturer_price", length = 255, nullable = false)
 	private float manufacturer_price;
-    
-    @Column(name = "sell_price", length = 255, nullable = false)
+
+	@Column(name = "sell_price", length = 255, nullable = false)
 	private float sell_price;
 
-    @Lob
-    @Column(name = "Image", length = Integer.MAX_VALUE, nullable = false)
+	@Lob
+	@Column(name = "Image", length = Integer.MAX_VALUE)
 	private byte[] image;
 
-	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name = "type_id",nullable=false,foreignKey=@ForeignKey(name="Type_FK"))
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "type_id", nullable = false, foreignKey = @ForeignKey(name = "Type_FK"))
 	private Type type;
 
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "category_id",nullable=false,foreignKey=@ForeignKey(name="Category_FK"))
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "category_id", nullable = false, foreignKey = @ForeignKey(name = "Category_FK"))
 	private Category category;
 	/*
 	 * @OneToOne
