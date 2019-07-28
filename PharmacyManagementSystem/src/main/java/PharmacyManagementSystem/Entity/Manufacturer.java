@@ -28,6 +28,6 @@ public class Manufacturer {
 	@Column(name = "manufacturer_phone", length = 255, nullable = false)
 	private String manufacturer_phone;
 
-	@Column(name = "manufacturer_location", length = 255, nullable = false)
-	private String manufacturer_location;
+	@Column(name = "manufacturer_address", length = 255, nullable = false)
+	private String manufacturer_address;
 }

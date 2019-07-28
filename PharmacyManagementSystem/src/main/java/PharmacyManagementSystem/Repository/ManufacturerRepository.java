@@ -12,7 +12,7 @@ public interface ManufacturerRepository extends JpaRepository<Manufacturer, Inte
 
 	@Query(value = "SELECT mf FROM Manufacturer mf WHERE mf.manufacturer_name LIKE '%' || :keyword || '%'"
 			+ " OR mf.manufacturer_phone LIKE '%' || :keyword || '%'"
-			+ " OR mf.manufacturer_location LIKE '%' || :keyword || '%'")
+			+ " OR mf.manufacturer_address LIKE '%' || :keyword || '%'")
 
 	public List<Manufacturer> searchManufacturer(@Param("keyword") String keyword);
 

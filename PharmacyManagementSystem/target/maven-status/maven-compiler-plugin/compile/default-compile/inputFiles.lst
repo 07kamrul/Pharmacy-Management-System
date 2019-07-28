@@ -1,0 +1,17 @@
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Application.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Entity\Manufacturer.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Service\TypeService.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Repository\ManufacturerRepository.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Service\ManufacturerService.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Controller\ManufacturerController.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Controller\TypeController.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Entity\Medicine.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Entity\Category.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Entity\Type.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Repository\CategoryRepository.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Controller\MedicineController.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Service\CategoryService.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Controller\CategoryController.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Service\MedicineService.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Repository\MedicineRepository.java
+N:\Projects\PharmacyManagementSystem\src\main\java\PharmacyManagementSystem\Repository\TypeRepository.java
