@@ -11,41 +11,40 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<title>Medicine Type</title>
+<title>Search Manufacturer</title>
 </head>
 <body class="container text-center">
-
 	<th:block th:include="/_header"></th:block>
-
 	<div>
 		<br>
-		<h2>List of All Types</h2>
-
-		<form class="form-inline my-2 my-lg-0" method="GET"
-			th:action="@{/searchType}">
-			<input class="form-control mr-sm-2" type="text" name="keyword"
-				placeholder="Enter Type Name......." aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
+		<h3>Result of your searching Manufacturer</h3>
 
 		<table border="1" cellpadding="10" class="table">
 			<thead class="thead-dark">
 				<tr>
-					<th>Type Name</th>
-					<th>Type Description</th>
+					<th>Manufacturer Name</th>
+					<th>Manufacturer Phone</th>
+					<th>Manufacturer Location</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="type : ${listTypes}">
-					<td th:text="${type.type_name}">Category Name</td>
-					<td th:text="${type.type_description}">Category Description</td>
+				<tr th:each="manufacturer : ${resultManufacturer}">
+					<td th:text="${manufacturer.manufacturer_name}">Manufacturer
+						Name</td>
+					<td th:text="${manufacturer.manufacturer_phone}">Manufacturer
+						Phone</td>
+					<td th:text="${manufacturer.manufacturer_location}">Manufacturer
+						Location</td>
 
-					<td><a th:href="@{'/editType/' + ${type.type_id}}"
+					<td><a
+						th:href="@{'/editManufacturer/' + ${manufacturer.manufacturer_id}}"
 						class="btn btn-outline-success" role="button" aria-pressed="true">Edit</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-						th:href="@{'/deleteType/' + ${type.type_id}}"
-						class="btn btn-outline-danger" role="button" aria-pressed="true">Delete</a></td>
+
+						<a
+						th:href="@{'/deleteManufacturer/' + ${manufacturer.manufacturer_id}}"
+						class="btn btn-outline-danger" role="button" aria-pressed="true">Delete</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>

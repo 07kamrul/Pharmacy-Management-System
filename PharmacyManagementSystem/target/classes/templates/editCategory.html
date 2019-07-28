@@ -13,49 +13,10 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <title>Modify Category</title>
 </head>
-<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light container">
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/">Home </a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<li class="nav-item"><a class="nav-link" href="/indexCategory">Category</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<li class="nav-item"><a class="nav-link" href="/indexType">Type</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Add New </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/newMedicine">Add Medicine</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="/newCategory">Add Category</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="/newType">Add Type</a>
-					</div></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<!-- <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-				</li> -->
+<body class="container">
 
-				<!-- <li class="nav-item "></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<center>
-					<h4>MKH PHARMA</h4>
-				</center> -->
-				<!-- <img src="../static/image/logo.jpg" height=50px width=300px
-					th:src="@{image/logo.jpg}" /> -->
-			</ul>
-			<form class="form-inline my-2 my-lg-0" method="GET"
-				th:action="@{/searchCategory}">
-				<input class="form-control mr-sm-2" type="text" name="keyword"
-					placeholder="Enter Category Name......." aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
-			<!-- 	<form method="GET" th:action="@{/searchCategory}">
-				<input type="text" name="keyword"
-					placeholder="Enter Medcine Name/ Generic Name/ Type/ Category/ Manufacturer name......." />
-				&nbsp; <input type="submit" value="Search" /> <i
-					class="fa fa-search"></i>
-			</form> -->
-		</div>
-	</nav>
-	<div class="container" align="center">
+	<th:block th:include="/_header"></th:block>
+	<div align="center">
 		<br> <br> <br>
 		<h2>Modify a Category of the Medicine</h2>
 		<br>

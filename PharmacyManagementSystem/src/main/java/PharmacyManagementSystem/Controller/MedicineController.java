@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import PharmacyManagementSystem.Entity.Category;
+import PharmacyManagementSystem.Entity.Manufacturer;
 import PharmacyManagementSystem.Entity.Medicine;
 import PharmacyManagementSystem.Service.CategoryService;
+import PharmacyManagementSystem.Service.ManufacturerService;
 import PharmacyManagementSystem.Service.MedicineService;
 import PharmacyManagementSystem.Entity.Type;
 import PharmacyManagementSystem.Service.TypeService;
@@ -30,6 +32,9 @@ public class MedicineController {
 
 	@Autowired
 	private CategoryService categoryService;
+
+	@Autowired
+	private ManufacturerService manufacturerService;
 
 	@RequestMapping("/")
 	public String viewHomepage(Model model) {
@@ -48,9 +53,11 @@ public class MedicineController {
 
 	@RequestMapping("/newMedicine")
 	public String showNewMedicineInfo(Model model) {
+		List<Manufacturer> listManufacturerMedicine = manufacturerService.listAllManufacturer();
 		List<Type> listTypeMedicine = typeService.listAllType();
 		List<Category> listCategoryMedicine = categoryService.listAllCategory();
 
+		model.addAttribute("listManufacturerMedicine", listManufacturerMedicine);
 		model.addAttribute("listTypeMedicine", listTypeMedicine);
 		model.addAttribute("listCategoryMedicine", listCategoryMedicine);
 

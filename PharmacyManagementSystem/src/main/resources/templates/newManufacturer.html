@@ -11,41 +11,46 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<title>Add Type</title>
+<title>Add Manufacturer</title>
 </head>
 <body class="container">
 
 	<th:block th:include="/_header"></th:block>
+
 	<div align="center">
-		<br> <br> <br>
-		<h2>Modify Type of the Medicine</h2>
 		<br>
-		<form action="#" th:action="@{/updateType}" th:object="${type}"
-			method="put">
+
+		<h2>Add new Manufacturer of the Medicine</h2>
+
+		<br>
+		<form action="#" th:action="@{/saveManufacturer}"
+			th:object="${manufacturer}" method="post">
 			<table border="0" cellpadding="10">
 				<tr>
-					<td>Type ID</td>
-					<td><input type="text" th:field="*{type_id}"
-						readonly="readonly"></td>
+					<td>Manufacturer Name :</td>
+					<td><input type="text"
+						placeholder="Enter Manufacturer Name...."
+						th:field="*{manufacturer_name}" required></td>
 				</tr>
 				<tr>
-					<td>Type Name :</td>
-					<td><input type="text" th:field="*{type_name}" required></td>
+					<td>Manufacturer Phone :</td>
+					<td><input type="text"
+						placeholder="Enter Manufacturer Phone...."
+						th:field="*{manufacturer_phone}" required></td>
 				</tr>
 				<tr>
-					<td>Type Description :</td>
+					<td>Manufacturer Location :</td>
 					<td><textarea rows="4" cols="40"
-							placeholder="Enter Type Description...."
-							th:field="*{type_description}" required></textarea></td>
+							placeholder="Enter Manufacturer Description...."
+							th:field="*{manufacturer_location}" required></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td><button type="submit" class="btn btn-success">Update</button>
-						<a class="btn btn-primary" href="/indexType" role="button">Cancel</a></td>
+					<td><button type="submit" class="btn btn-success">Save</button>
+						<a class="btn btn-primary" href="/indexManufacturer" role="button">Cancel</a></td>
 				</tr>
 			</table>
 		</form>
 	</div>
-
 </body>
 </html>

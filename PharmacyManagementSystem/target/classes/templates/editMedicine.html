@@ -13,7 +13,9 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <title>New Medicine</title>
 </head>
-<body>
+<body class="container">
+
+	<th:block th:include="/_header"></th:block>
 	<div align="center">
 		<h1>Modify a new Medicine</h1>
 		<br>
@@ -27,7 +29,7 @@
 				</tr>
 				<tr>
 					<td>Medicine Image:</td>
-					<td><input type="file" th:field="*{image}" ></td>
+					<td><input type="file" th:field="*{image}"></td>
 				</tr>
 				<tr>
 					<td>Medicine Name:</td>
@@ -68,9 +70,15 @@
 					</select></td>
 				</tr>
 				<tr>
-					<td>Medicine Manufacturer Name:</td>
-					<td><input type="text" th:field="*{manufacturer_name}"
-						required></td>
+					<td>Medicine Manufacturer Name :</td>
+					<td><select th:field="*{manufacturer}"
+						name="medicineManufacturer" required>
+							<option value=""
+								th:each="manufacturer : ${listManufacturerMedicine}"
+								th:value="${manufacturer.manufacturer_id}"
+								th:text="${manufacturer.manufacturer_name}">Manufacturer
+								Name</option>
+					</select></td>
 				</tr>
 				<tr>
 					<td>Medicine Manufacturer Price:</td>

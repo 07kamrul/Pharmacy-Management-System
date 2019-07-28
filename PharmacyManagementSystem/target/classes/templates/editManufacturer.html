@@ -11,37 +11,44 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<title>Add Type</title>
+<title>Add Manufacturer</title>
 </head>
 <body class="container">
 
 	<th:block th:include="/_header"></th:block>
 	<div align="center">
 		<br> <br> <br>
-		<h2>Modify Type of the Medicine</h2>
+		<h2>Modify Type of the Medicine Manufacturer</h2>
 		<br>
-		<form action="#" th:action="@{/updateType}" th:object="${type}"
-			method="put">
+		<form action="#" th:action="@{/updateManufacturer}"
+			th:object="${manufacturer}" method="put">
 			<table border="0" cellpadding="10">
 				<tr>
-					<td>Type ID</td>
-					<td><input type="text" th:field="*{type_id}"
+					<td>Manufacturer ID</td>
+					<td><input type="text" th:field="*{manufacturer_id}"
 						readonly="readonly"></td>
 				</tr>
 				<tr>
-					<td>Type Name :</td>
-					<td><input type="text" th:field="*{type_name}" required></td>
+					<td>Manufacturer Name :</td>
+					<td><input type="text" th:field="*{manufacturer_name}"
+						required></td>
 				</tr>
 				<tr>
-					<td>Type Description :</td>
+					<td>Manufacturer Phone :</td>
 					<td><textarea rows="4" cols="40"
-							placeholder="Enter Type Description...."
-							th:field="*{type_description}" required></textarea></td>
+							placeholder="Enter Manufacturer Phone ...."
+							th:field="*{manufacturer_phone}" required></textarea></td>
+				</tr>
+				<tr>
+					<td>Manufacturer Location :</td>
+					<td><textarea rows="4" cols="40"
+							placeholder="Enter Manufacturer Location...."
+							th:field="*{manufacturer_location}" required></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td><button type="submit" class="btn btn-success">Update</button>
-						<a class="btn btn-primary" href="/indexType" role="button">Cancel</a></td>
+						<a class="btn btn-primary" href="/indexManufacturer" role="button">Cancel</a></td>
 				</tr>
 			</table>
 		</form>

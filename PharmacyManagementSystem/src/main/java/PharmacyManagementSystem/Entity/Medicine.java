@@ -37,9 +37,6 @@ public class Medicine {
 	@Column(name = "medicine_power", length = 255, nullable = false)
 	private String medicine_power;
 
-	@Column(name = "manufacturer_name", length = 255, nullable = false)
-	private String manufacturer_name;
-
 	@Column(name = "medicine_stored", length = 255, nullable = false)
 	private String medicine_stored;
 
@@ -54,15 +51,14 @@ public class Medicine {
 	private byte[] image;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "manufacturer_id", nullable = false, foreignKey = @ForeignKey(name = "Manufacturer_FK"))
+	private Manufacturer manufacturer;
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "type_id", nullable = false, foreignKey = @ForeignKey(name = "Type_FK"))
 	private Type type;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id", nullable = false, foreignKey = @ForeignKey(name = "Category_FK"))
 	private Category category;
-	/*
-	 * @OneToOne
-	 * 
-	 * @JoinColumn(name = "imageId") private Image image;
-	 */
 }
